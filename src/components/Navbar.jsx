@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -14,73 +14,92 @@ const links = [
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen]       = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <nav className="fixed top-0 w-full z-50 shadow-lg" style={{ background: '#58287A' }}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-400 ${
+        scrolled
+          ? 'bg-gray-950/95 backdrop-blur-md shadow-2xl shadow-black/60 border-b border-gray-800/50'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo + brand */}
-        <a href="#home" className="flex items-center gap-3 flex-shrink-0">
+        <a href="#home" className="flex items-center gap-3 flex-shrink-0 group">
           <img
             src={`${BASE}assets/logo.png`}
             alt="JB Infrastructure"
-            className="h-14 w-14 object-contain rounded"
+            className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-110"
           />
-          <span className="text-white font-bold text-xl tracking-wider">
-            JB INFRASTRUCTURE
-          </span>
+          <div className="flex flex-col leading-tight">
+            <span className="text-white font-black text-base sm:text-lg tracking-widest uppercase">
+              JB Infrastructure
+            </span>
+            <span className="text-amber-400 text-[10px] tracking-[0.35em] uppercase font-semibold hidden sm:block">
+              Your Ideas Tuned Into Reality
+            </span>
+          </div>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-5">
+        <ul className="hidden lg:flex items-center gap-6">
           {links.map(l => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-white/80 hover:text-yellow-300 font-medium text-base tracking-wide transition-colors duration-200"
+                className="nav-link text-gray-300 hover:text-amber-400 font-medium text-xs tracking-[0.15em] transition-colors duration-200 uppercase"
               >
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
+
+        {/* CTA button – desktop */}
+        <a
+          href="#contact"
+          className="hidden lg:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-5 py-2 rounded text-xs font-black tracking-widest uppercase transition-all duration-200"
+        >
+          Get In Touch
+        </a>
 
         {/* Hamburger */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle navigation"
         >
-          <span
-            className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${open ? 'opacity-0' : ''}`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`}
-          />
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile menu */}
       {open && (
-        <ul
-          className="md:hidden px-4 pb-4 pt-2 flex flex-col gap-2"
-          style={{ background: '#4A1F68' }}
-        >
-          {links.map(l => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block text-white/80 hover:text-yellow-300 py-2 text-sm font-medium tracking-wide transition-colors"
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="lg:hidden bg-gray-950/98 backdrop-blur-md border-t border-gray-800">
+          <ul className="px-6 py-5 flex flex-col gap-1">
+            {links.map(l => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-gray-300 hover:text-amber-400 py-3 text-sm font-medium tracking-widest uppercase transition-colors border-b border-gray-800/50 last:border-b-0"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </nav>
   )

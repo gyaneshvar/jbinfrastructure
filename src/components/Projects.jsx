@@ -1,54 +1,62 @@
 import { projects } from '../data/projects'
 
-const BASE = import.meta.env.BASE_URL
-
 export default function Projects() {
   return (
-    <>
-      <div className="jb-separator" />
-      <section
-        id="projects"
-        className="jb-gradient py-20 px-4 relative overflow-hidden"
-      >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 80px)',
-          }}
-        />
+    <section id="projects" className="bg-gray-950 py-24 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Label */}
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-0.5 bg-amber-500" />
+          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">Track Record</span>
+        </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          {/* Mini logo */}
-          <div className="flex justify-center mb-6">
-            <img src={`${BASE}assets/logo.png`} alt="JB" className="h-14 w-14 object-contain" />
-          </div>
-
-          <h2 className="text-4xl sm:text-5xl font-black text-black uppercase tracking-widest text-center mb-10">
-            Our Projects
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
+            Our <span className="text-amber-400">Projects</span>
           </h2>
+          <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
+            Delivered across India — from Assam to Rajasthan, Mizoram to Maharashtra.
+          </p>
+        </div>
 
-          <div className="overflow-x-auto rounded-xl shadow-xl">
-            <table className="jb-table w-full border-collapse min-w-[700px]">
+        <div className="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse min-w-[700px]">
               <thead>
-                <tr>
-                  <th style={{ width: '42%' }}>Project Name</th>
-                  <th style={{ width: '33%' }}>Client Name</th>
-                  <th style={{ width: '25%' }}>Work Order No. / Date</th>
+                <tr className="bg-gray-800">
+                  <th className="py-4 px-5 text-left text-amber-400 text-xs tracking-widest uppercase font-bold border-b border-gray-700" style={{ width: '4%' }}>#</th>
+                  <th className="py-4 px-5 text-left text-amber-400 text-xs tracking-widest uppercase font-bold border-b border-gray-700" style={{ width: '44%' }}>Project Name</th>
+                  <th className="py-4 px-5 text-left text-amber-400 text-xs tracking-widest uppercase font-bold border-b border-gray-700" style={{ width: '34%' }}>Client</th>
+                  <th className="py-4 px-5 text-left text-amber-400 text-xs tracking-widest uppercase font-bold border-b border-gray-700" style={{ width: '18%' }}>Work Order / Date</th>
                 </tr>
               </thead>
               <tbody>
                 {projects.map((p, i) => (
-                  <tr key={i}>
-                    <td>{p.name}</td>
-                    <td>{p.client}</td>
-                    <td className="text-center">{p.workOrder}</td>
+                  <tr
+                    key={i}
+                    className={`${
+                      i % 2 === 0 ? 'bg-gray-900/60' : 'bg-gray-900/20'
+                    } hover:bg-gray-800/70 transition-colors duration-150`}
+                  >
+                    <td className="py-4 px-5 text-amber-500 font-black text-sm border-b border-gray-800/50">
+                      {String(i + 1).padStart(2, '0')}
+                    </td>
+                    <td className="py-4 px-5 text-gray-200 text-xs sm:text-sm leading-relaxed border-b border-gray-800/50">
+                      {p.name}
+                    </td>
+                    <td className="py-4 px-5 text-gray-400 text-xs leading-relaxed border-b border-gray-800/50">
+                      {p.client}
+                    </td>
+                    <td className="py-4 px-5 text-gray-500 text-xs border-b border-gray-800/50 whitespace-nowrap">
+                      {p.workOrder}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

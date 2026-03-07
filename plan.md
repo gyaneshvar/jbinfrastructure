@@ -1,8 +1,18 @@
-# Plan: JB Infrastructure Company Website
-
+# Plan: JB Infrastructure Company Website Improvements Redesign and re implement with fresh Idea
+This was a old version website that i dont like at all
+Website should look fancy and it should highlight the services it provides. Lokk and theme should represent the work company does
+New image added
+heroimage.jpeg ---> I want this on behind homepage as some stylish semi transparent  
+logo.png
+p10.jpeg
+p11.jpeg
+p12.jpeg
+p13.jpeg
+p14.jpeg
+p15.jpeg
+p17.jpeg
+p20.jpeg
 ## Brand Data (from PDF)
-- Colors: Purple #7B3FA0 (primary), Gold/Amber #E8A020 (secondary), Dark #1A1A1A (separators), Red #C0392B (logo accent), White text
-- Gradient: purple top → golden-yellow bottom (diagonal) — used across all sections
 - Tagline: "Your Ideas Tuned Into Reality"
 - Email: amit.jbinfrastructure@gmail.com | Phone: +91 8452824423
 - Office: Plot No. 12/A-401, Priyanka Utkarsh, Sec 21, Ulawe, Navi Mumbai – 410206
