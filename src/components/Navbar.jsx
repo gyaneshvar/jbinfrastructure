@@ -18,15 +18,15 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 shadow-lg" style={{ background: '#58287A' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo + brand */}
         <a href="#home" className="flex items-center gap-3 flex-shrink-0">
           <img
             src={`${BASE}assets/logo.png`}
             alt="JB Infrastructure"
-            className="h-10 w-10 object-contain rounded"
+            className="h-14 w-14 object-contain rounded"
           />
-          <span className="text-white font-bold text-base tracking-wider hidden sm:block">
+          <span className="text-white font-bold text-xl tracking-wider">
             JB INFRASTRUCTURE
           </span>
         </a>
@@ -37,7 +37,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-white/80 hover:text-yellow-300 font-medium text-sm tracking-wide transition-colors duration-200"
+                className="text-white/80 hover:text-yellow-300 font-medium text-base tracking-wide transition-colors duration-200"
               >
                 {l.label}
               </a>

@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="jb-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 pt-16"
+      className="jb-hero-bg min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20"
     >
       {/* Logo */}
       <img
