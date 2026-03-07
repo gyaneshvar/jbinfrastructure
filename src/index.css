@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jb-purple: #7B3FA0;
+  --color-jb-purple-dark: #58287A;
+  --color-jb-gold: #D4941A;
+  --color-jb-amber: #E8A820;
+  --color-jb-dark: #252525;
+  --color-jb-separator: #1A1A1A;
+  --color-jb-red: #C0392B;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Shared gradient used across all content sections */
+.jb-gradient {
+  background: linear-gradient(160deg, #7B3FA0 0%, #9B5090 28%, #C47828 68%, #D4941A 100%);
+}
+
+/* Slightly darker variant for alternating feel */
+.jb-gradient-dark {
+  background: linear-gradient(160deg, #621D86 0%, #8B3D82 30%, #B06422 68%, #C47818 100%);
+}
+
+/* Diagonal decorative stripe effect matching PDF */
+.jb-hero-bg {
+  background:
+    linear-gradient(160deg, #7B3FA0 0%, #9B5090 28%, #C47828 68%, #D4941A 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.jb-hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.04) 40px,
+    rgba(255,255,255,0.04) 80px
+  );
+  pointer-events: none;
+}
+
+/* Section separator bar */
+.jb-separator {
+  height: 10px;
+  background: #1A1A1A;
+}
+
+/* Table styling */
+.jb-table th {
+  background-color: #2D2D2D;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border: 1px solid #444;
+}
+
+.jb-table td {
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(0,0,0,0.3);
+  font-size: 0.85rem;
+  vertical-align: top;
+  color: #111;
+}
+
+.jb-table tr:nth-child(even) td {
+  background: rgba(255,255,255,0.15);
+}
+
+.jb-table tr:nth-child(odd) td {
+  background: rgba(255,255,255,0.05);
+}
