@@ -1,5 +1,15 @@
 export const projects = [
   {
+    name: 'Construction of Athletics Stadium at Mahayogi Gorakhnath University Gorakhpur (UP) — Construction of Structural Steel PEB Canopy.',
+    client: 'APCO INFRATECH PVT LTD',
+    workOrder: 'WO/APCO/HO/GRP/STR/SC/036 / 04.04.2026',
+  },
+  {
+    name: 'Development of 6-lane Amritsar-Bathinda Greenfield Section on NH-754A — Fabrication & Erection of Staircase at ROB at our TIMO Project.',
+    client: 'G R INFRAPROJECTS LIMITED',
+    workOrder: '3200009301 / 01.01.2026',
+  },
+  {
     name: 'Construction of view points on Aizwal-Tuipang section of NH-54 in the state of Mizoram.',
     client: 'SHIVALAYA CONSTRUCTION PRIVATE LIMITED, GURUGRAM, HARYANA',
     workOrder: 'SCCL/WO/MZ-699/HO/2023-24/001 / 12.05.2023',

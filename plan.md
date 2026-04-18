@@ -48,7 +48,7 @@ p20.jpeg
 - deploy script: gh-pages -d dist
 
 ## Contact Details
-- Person: Amit Kumar Yadav
+- Person: Amit Kumar
 - Mobile: +91 8090898765
 - Address: Pandeypur, Varanasi, Uttar Pradesh
 - Email: amit.jbinfrastructure@gmail.com
