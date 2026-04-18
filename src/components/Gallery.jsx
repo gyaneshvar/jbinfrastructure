@@ -30,7 +30,7 @@ export default function Gallery() {
         <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-fuchsia-600/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Label */}
+          {/* Labels */}
           <div className="flex items-center gap-3 mb-4 fade-up">
             <div className="w-10 h-0.5 bg-gradient-to-r from-fuchsia-500 to-transparent" />
             <span className="text-fuchsia-400 text-xs tracking-[0.4em] uppercase font-semibold">Visual Portfolio</span>
