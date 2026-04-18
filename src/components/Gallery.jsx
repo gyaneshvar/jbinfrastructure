@@ -25,7 +25,7 @@ export default function Gallery() {
 
   return (
     <>
-      <section id="gallery" className="bg-gray-50 py-24 px-4">
+      <section id="gallery" className="bg-gray-950 py-24 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Label */}
           <div className="flex items-center gap-3 mb-4">
@@ -34,10 +34,10 @@ export default function Gallery() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 uppercase leading-tight">
+            <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
               Project <span className="text-amber-500">Gallery</span>
             </h2>
-            <p className="text-gray-600 text-sm max-w-sm leading-relaxed">
+            <p className="text-gray-400 text-sm max-w-sm leading-relaxed">
               A glimpse into our executed projects — click any image to explore.
             </p>
           </div>
@@ -74,13 +74,13 @@ export default function Gallery() {
       {/* Lightbox */}
       {selected !== null && (
         <div
-          className="fixed inset-0 z-50 bg-white/98 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setSelected(null)}
         >
           {/* Prev */}
           <button
             onClick={e => { e.stopPropagation(); prev() }}
-            className="absolute left-4 sm:left-8 z-10 text-gray-600 hover:text-amber-500 p-3 transition-colors duration-200 rounded-full hover:bg-gray-100"
+            className="absolute left-4 sm:left-8 z-10 text-white/50 hover:text-amber-500 p-3 transition-colors duration-200 rounded-full hover:bg-white/5"
             aria-label="Previous"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -98,7 +98,7 @@ export default function Gallery() {
           {/* Next */}
           <button
             onClick={e => { e.stopPropagation(); next() }}
-            className="absolute right-4 sm:right-8 z-10 text-gray-600 hover:text-amber-500 p-3 transition-colors duration-200 rounded-full hover:bg-gray-100"
+            className="absolute right-4 sm:right-8 z-10 text-white/50 hover:text-amber-500 p-3 transition-colors duration-200 rounded-full hover:bg-white/5"
             aria-label="Next"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -109,7 +109,7 @@ export default function Gallery() {
           {/* Close */}
           <button
             onClick={() => setSelected(null)}
-            className="absolute top-4 right-4 z-10 text-gray-600 hover:text-amber-500 p-2 transition-colors duration-200 rounded-full hover:bg-gray-100"
+            className="absolute top-4 right-4 z-10 text-white/50 hover:text-amber-500 p-2 transition-colors duration-200 rounded-full hover:bg-white/5"
             aria-label="Close"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
@@ -119,8 +119,8 @@ export default function Gallery() {
 
           {/* Caption + counter */}
           <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
-            <p className="text-gray-600 text-xs tracking-wider">{images[selected].alt}</p>
-            <p className="text-gray-400 text-xs tracking-widest">{selected + 1} / {images.length}</p>
+            <p className="text-white text-xs tracking-wider">{images[selected].alt}</p>
+            <p className="text-gray-500 text-xs tracking-widest">{selected + 1} / {images.length}</p>
           </div>
         </div>
       )}

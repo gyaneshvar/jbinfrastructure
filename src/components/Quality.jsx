@@ -57,7 +57,7 @@ const benefits = [
 
 export default function Quality() {
   return (
-    <section id="quality" className="bg-white py-24 px-4">
+    <section id="quality" className="bg-slate-950 py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
@@ -68,12 +68,12 @@ export default function Quality() {
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
           {/* Left */}
           <div>
-            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 uppercase leading-tight mb-10">
+            <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight mb-10">
               Quality &amp; <span className="text-amber-500">Standards</span>
             </h2>
             <ul className="space-y-6">
               {qualityPoints.map((p, i) => (
-                <li key={i} className="flex items-start gap-5 text-gray-600 text-sm sm:text-base leading-relaxed">
+                <li key={i} className="flex items-start gap-5 text-gray-400 text-sm sm:text-base leading-relaxed">
                   <span className="mt-2.5 w-6 h-px flex-shrink-0 bg-amber-500" />
                   {p}
                 </li>
@@ -85,9 +85,9 @@ export default function Quality() {
           <div className="lg:pt-16">
             <div className="bg-gradient-to-br from-amber-500/10 via-transparent to-transparent border border-amber-500/20 rounded-2xl p-10">
               <div className="text-7xl font-black text-amber-500/10 mb-3 leading-none">ISO</div>
-              <div className="text-gray-900 font-black text-2xl mb-4">Quality Assured</div>
+              <div className="text-white font-black text-2xl mb-4">Quality Assured</div>
               <div className="w-10 h-0.5 bg-amber-500 mb-4" />
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 Every project undergoes rigorous quality checks from initial planning through final delivery —
                 ensuring structures that stand the test of time.
               </p>
@@ -100,7 +100,7 @@ export default function Quality() {
           <div className="w-10 h-0.5 bg-amber-500" />
           <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">Why Choose Us</span>
         </div>
-        <h3 className="text-3xl sm:text-4xl font-black text-gray-900 uppercase mb-12">
+        <h3 className="text-3xl sm:text-4xl font-black text-white uppercase mb-12">
           Client <span className="text-amber-500">Benefits</span>
         </h3>
 
@@ -108,13 +108,13 @@ export default function Quality() {
           {benefits.map((b, i) => (
             <div
               key={i}
-              className="card-glow group bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-amber-500/40 transition-all duration-300"
+              className="card-glow group bg-gray-900/40 border border-gray-800 rounded-2xl p-6 hover:border-amber-500/40 transition-all duration-300"
             >
               <div className="text-amber-400 mb-4">{b.icon}</div>
-              <h4 className="text-gray-900 font-black text-xs uppercase tracking-wide mb-3 group-hover:text-amber-500 transition-colors duration-200">
+              <h4 className="text-white font-black text-xs uppercase tracking-wide mb-3 group-hover:text-amber-500 transition-colors duration-200">
                 {b.title}
               </h4>
-              <p className="text-gray-500 text-xs leading-relaxed">{b.desc}</p>
+              <p className="text-gray-400 text-xs leading-relaxed">{b.desc}</p>
             </div>
           ))}
         </div>

@@ -51,7 +51,7 @@ const contactDetails = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-gray-50 py-24 px-4">
+    <section id="contact" className="bg-gray-950 py-24 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
@@ -60,7 +60,7 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 uppercase leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
             Contact <span className="text-amber-500">Information</span>
           </h2>
           <a
@@ -75,7 +75,7 @@ export default function Contact() {
           {contactDetails.map((d, i) => (
             <div
               key={i}
-              className="card-glow bg-white border border-gray-200 rounded-xl p-5 flex items-start gap-4 hover:border-amber-500/40 transition-all duration-300"
+              className="card-glow bg-gray-900/40 border border-gray-800 rounded-xl p-5 flex items-start gap-4 hover:border-amber-500/40 transition-all duration-300"
             >
               <div className="text-amber-400 flex-shrink-0 mt-0.5">{d.icon}</div>
               <div className="min-w-0">
@@ -83,12 +83,12 @@ export default function Contact() {
                 {d.href ? (
                   <a
                     href={d.href}
-                    className="text-gray-900 text-sm font-medium hover:text-amber-500 transition-colors duration-200 break-all"
+                    className="text-white text-sm font-medium hover:text-amber-500 transition-colors duration-200 break-all"
                   >
                     {d.value}
                   </a>
                 ) : (
-                  <span className="text-gray-900 text-sm font-medium leading-relaxed">{d.value}</span>
+                  <span className="text-white text-sm font-medium leading-relaxed">{d.value}</span>
                 )}
               </div>
             </div>
