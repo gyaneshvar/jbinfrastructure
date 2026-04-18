@@ -13,27 +13,27 @@ const bullets = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-[#020617] py-24 px-4 relative overflow-hidden">
-      {/* Background cyber grid */}
-      <div className="absolute inset-0 hero-grid opacity-30" />
+    <section id="about" className="bg-slate-900 py-24 px-4 relative overflow-hidden text-slate-100">
+      {/* Background blueprint grid */}
+      <div className="absolute inset-0 blueprint-grid opacity-30" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Label */}
-        <div className="flex items-center gap-3 mb-4 fade-up">
-          <div className="w-10 h-0.5 bg-gradient-to-r from-violet-500 to-transparent" />
-          <span className="text-violet-400 text-xs tracking-[0.4em] uppercase font-semibold">Entity Profile</span>
+        <div className="flex items-center gap-3 mb-6 fade-up">
+          <div className="w-10 h-0.5 bg-sky-600" />
+          <span className="text-sky-500 text-xs tracking-[0.3em] uppercase font-bold">Corporate Overview</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: text */}
           <div className="fade-up" style={{ animationDelay: '100ms' }}>
             <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight mb-10">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-500">Us</span>
+              About <span className="text-sky-500">Us</span>
             </h2>
             <ul className="space-y-6">
               {bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-5 text-slate-300 text-sm sm:text-base leading-relaxed group">
-                  <span className="mt-2.5 w-6 h-px flex-shrink-0 bg-violet-500 group-hover:w-10 transition-all duration-300 shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
+                  <span className="mt-2.5 w-6 h-1 flex-shrink-0 bg-sky-600 group-hover:w-10 transition-all duration-300" />
                   {b}
                 </li>
               ))}
@@ -45,13 +45,13 @@ export default function About() {
             {stats.map((s, i) => (
               <div
                 key={i}
-                className="glass-panel glass-card-glow rounded-2xl p-7 text-center hover:border-violet-400/40 relative overflow-hidden group"
+                className="industrial-panel industrial-card-hover rounded-lg p-8 text-center relative overflow-hidden group"
               >
-                <div className="absolute inset-0 bg-violet-500/5 group-hover:bg-violet-500/10 transition-colors duration-300" />
-                <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-violet-300 mb-2 relative z-10 drop-shadow-md">
+                <div className="absolute inset-0 bg-sky-600/0 group-hover:bg-sky-600/5 transition-colors duration-300" />
+                <div className="text-4xl sm:text-5xl font-black text-white mb-3 relative z-10">
                   {s.value}
                 </div>
-                <div className="text-slate-400 text-[10px] tracking-widest uppercase relative z-10 font-medium">
+                <div className="text-slate-400 text-[11px] tracking-widest uppercase relative z-10 font-bold">
                   {s.label}
                 </div>
               </div>

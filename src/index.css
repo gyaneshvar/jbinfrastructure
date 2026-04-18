@@ -7,100 +7,76 @@ html {
 
 body {
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  background-color: #020617; /* Slate 950 / Obsidian */
+  background-color: #0f172a; /* Slate 900 for Industrial look */
   color: #f8fafc;
   overflow-x: hidden;
 }
 
-/* Subtle noise texture overlay for depth */
+/* Subtle gritty texture for industrial feel */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Crect width='1' height='1' fill='rgba(255,255,255,0.015)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Animated glow underline for nav links */
+/* Engineered brand colors - Slate & Blue */
+:root {
+  --brand-blue: #0284c7; /* sky-600 */
+  --brand-blue-hover: #0369a1; /* sky-700 */
+  --brand-steel: #94a3b8; /* slate-400 */
+  --brand-dark: #0f172a; /* slate-900 */
+}
+
+/* Clean underline for nav links */
 .nav-link {
   position: relative;
 }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   width: 0;
   height: 2px;
-  background: #22d3ee; /* cyan-400 */
-  box-shadow: 0 0 8px #22d3ee;
+  background: var(--brand-blue);
   transition: width 0.3s ease;
 }
 .nav-link:hover::after, .nav-link.active::after {
   width: 100%;
 }
 
-/* Holographic shimmer animation for accent elements */
-@keyframes holo-shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-.holo-shimmer {
-  background: linear-gradient(90deg, #22d3ee, #8b5cf6, #22d3ee);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: holo-shimmer 4s linear infinite;
-}
-
 /* Section entrance fade-up */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); filter: blur(4px); }
-  to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .fade-up {
   animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Cybernetic grid lines */
-.hero-grid {
+/* Blueprint Grid lines for industrial aesthetic */
+.blueprint-grid {
   background-image:
-    linear-gradient(rgba(34, 211, 238, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.05) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-/* Glassmorphism utility classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+/* Solid Industrial Panels instead of Glassmorphism */
+.industrial-panel {
+  background: #1e293b; /* slate-800 */
+  border: 1px solid #334155; /* slate-700 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Glass card hover glow */
-.glass-card-glow {
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+.industrial-card-hover {
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
-.glass-card-glow:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(34, 211, 238, 0.4);
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.1), inset 0 0 20px rgba(34, 211, 238, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4);
+.industrial-card-hover:hover {
+  border-color: var(--brand-blue);
   transform: translateY(-4px);
 }
-
-/* Neon Divider line accent */
-.section-label::before {
-  content: '';
-  display: inline-block;
-  width: 3rem;
-  height: 2px;
-  background: linear-gradient(90deg, #22d3ee, transparent);
-  margin-right: 1rem;
-  vertical-align: middle;
-}
-
