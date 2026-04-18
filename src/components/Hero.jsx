@@ -13,7 +13,7 @@ export default function Hero() {
       />
 
       {/* Multi-layer overlay: deepen toward bottom, keep midground readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/40 to-white/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
 
       {/* Subtle grid texture */}
       <div className="absolute inset-0 hero-grid opacity-60" />
@@ -45,12 +45,12 @@ export default function Hero() {
         </div>
 
         {/* Main heading */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-gray-900 uppercase leading-none mb-3 tracking-tight">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl font-black text-white uppercase leading-none mb-3 tracking-tight">
           JB
         </h1>
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase leading-none mb-6 tracking-tight">
           <span className="text-amber-500">INFRA</span>
-          <span className="text-gray-900">STRUCTURE</span>
+          <span className="text-white">STRUCTURE</span>
         </h1>
 
         {/* Gold rule */}
@@ -61,7 +61,7 @@ export default function Hero() {
         </div>
 
         {/* Tagline */}
-        <p className="text-gray-600 text-sm sm:text-lg tracking-[0.3em] uppercase font-light mb-12 max-w-lg">
+        <p className="text-gray-400 text-sm sm:text-lg tracking-[0.3em] uppercase font-light mb-12 max-w-lg">
           Your Ideas Tuned Into Reality
         </p>
 
@@ -75,7 +75,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 border border-gray-300 hover:border-amber-500 hover:text-amber-500 text-gray-700 px-8 py-3.5 rounded font-bold tracking-widest text-xs uppercase transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 border border-gray-800 hover:border-amber-500 hover:text-amber-500 text-gray-300 px-8 py-3.5 rounded font-bold tracking-widest text-xs uppercase transition-all duration-200"
           >
             Contact Us
           </a>
@@ -83,7 +83,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-400 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 animate-bounce">
         <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
           <path fillRule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L10 14.586l5.293-5.293a1 1 0 011.414 0z" clipRule="evenodd" />

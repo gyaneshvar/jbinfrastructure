@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-400 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-2xl shadow-gray-200/50 border-b border-gray-200/50'
+          ? 'bg-gray-950/80 backdrop-blur-md shadow-2xl border-b border-gray-800/50'
           : 'bg-transparent'
       } `}
     >
@@ -40,7 +40,7 @@ export default function Navbar() {
             className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-110"
           />
           <div className="flex flex-col leading-tight">
-            <span className="text-gray-900 font-black text-base sm:text-lg tracking-widest uppercase">
+            <span className="text-white font-black text-base sm:text-lg tracking-widest uppercase">
               JB Infrastructure
             </span>
             <span className="text-amber-400 text-[10px] tracking-[0.35em] uppercase font-semibold hidden sm:block">
@@ -55,7 +55,7 @@ export default function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="nav-link text-gray-600 hover:text-amber-500 font-medium text-xs tracking-[0.15em] transition-colors duration-200 uppercase"
+                className="nav-link text-gray-400 hover:text-amber-500 font-medium text-xs tracking-[0.15em] transition-colors duration-200 uppercase"
               >
                 {l.label}
               </a>
@@ -77,22 +77,22 @@ export default function Navbar() {
           className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle navigation"
         >
-          <span className={`block w-6 h-0.5 bg-gray-950 transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-gray-950 transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-gray-950 transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-100">
+        <div className="lg:hidden bg-gray-950/98 backdrop-blur-md border-t border-gray-900">
           <ul className="px-6 py-5 flex flex-col gap-1">
             {links.map(l => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-gray-600 hover:text-amber-500 py-3 text-sm font-medium tracking-widest uppercase transition-colors border-b border-gray-100 last:border-b-0"
+                  className="block text-gray-400 hover:text-amber-500 py-3 text-sm font-medium tracking-widest uppercase transition-colors border-b border-gray-900 last:border-b-0"
                 >
                   {l.label}
                 </a>

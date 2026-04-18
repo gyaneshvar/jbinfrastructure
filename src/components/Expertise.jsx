@@ -48,7 +48,7 @@ const items = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="bg-white py-24 px-4">
+    <section id="expertise" className="bg-slate-950 py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Label */}
         <div className="flex items-center gap-3 mb-4">
@@ -57,10 +57,10 @@ export default function Expertise() {
         </div>
 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <h2 className="text-4xl sm:text-5xl font-black text-gray-900 uppercase leading-tight">
+          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
             Our <span className="text-amber-500">Expertise</span>
           </h2>
-          <p className="text-gray-600 text-sm max-w-md leading-relaxed">
+          <p className="text-gray-400 text-sm max-w-md leading-relaxed">
             Years of experience, a dedicated team, and the precision to deliver high-quality
             projects that meet — and exceed — client expectations.
           </p>
@@ -70,20 +70,20 @@ export default function Expertise() {
           {items.map((item) => (
             <div
               key={item.num}
-              className="card-glow group bg-gray-50 border border-gray-200 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300"
+              className="card-glow group bg-gray-900/40 border border-gray-800/80 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300"
             >
               {/* Icon */}
               <div className="text-amber-400 mb-5">{item.icon}</div>
               {/* Number */}
               <div className="text-amber-500/60 text-xs font-black tracking-widest mb-3">{item.num}</div>
               {/* Title */}
-              <h3 className="text-gray-900 font-black text-base uppercase tracking-wide mb-4 leading-tight">
+              <h3 className="text-white font-black text-base uppercase tracking-wide mb-4 leading-tight">
                 {item.title}
               </h3>
               {/* Animated underline */}
               <div className="w-6 h-0.5 bg-amber-500 mb-4 group-hover:w-14 transition-all duration-400 rounded-full" />
               {/* Description */}
-              <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+              <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
