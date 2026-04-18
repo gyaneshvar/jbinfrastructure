@@ -13,24 +13,27 @@ const bullets = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-gray-950 py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="bg-[#020617] py-24 px-4 relative overflow-hidden">
+      {/* Background cyber grid */}
+      <div className="absolute inset-0 hero-grid opacity-30" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Label */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-0.5 bg-amber-500" />
-          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">Who We Are</span>
+        <div className="flex items-center gap-3 mb-4 fade-up">
+          <div className="w-10 h-0.5 bg-gradient-to-r from-violet-500 to-transparent" />
+          <span className="text-violet-400 text-xs tracking-[0.4em] uppercase font-semibold">Entity Profile</span>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left: text */}
-          <div>
+          <div className="fade-up" style={{ animationDelay: '100ms' }}>
             <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight mb-10">
-              About <span className="text-amber-500">Us</span>
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-500">Us</span>
             </h2>
             <ul className="space-y-6">
               {bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-5 text-gray-400 text-sm sm:text-base leading-relaxed">
-                  <span className="mt-2.5 w-6 h-px flex-shrink-0 bg-amber-500" />
+                <li key={i} className="flex items-start gap-5 text-slate-300 text-sm sm:text-base leading-relaxed group">
+                  <span className="mt-2.5 w-6 h-px flex-shrink-0 bg-violet-500 group-hover:w-10 transition-all duration-300 shadow-[0_0_8px_rgba(139,92,246,0.6)]" />
                   {b}
                 </li>
               ))}
@@ -38,14 +41,19 @@ export default function About() {
           </div>
 
           {/* Right: stats */}
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-5 fade-up" style={{ animationDelay: '200ms' }}>
             {stats.map((s, i) => (
               <div
                 key={i}
-                className="card-glow bg-gray-900/40 border border-gray-800 rounded-2xl p-7 text-center transition-all duration-300 hover:border-amber-500/40"
+                className="glass-panel glass-card-glow rounded-2xl p-7 text-center hover:border-violet-400/40 relative overflow-hidden group"
               >
-                <div className="text-4xl sm:text-5xl font-black text-amber-400 mb-2">{s.value}</div>
-                <div className="text-gray-500 text-[10px] tracking-widest uppercase">{s.label}</div>
+                <div className="absolute inset-0 bg-violet-500/5 group-hover:bg-violet-500/10 transition-colors duration-300" />
+                <div className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-violet-300 mb-2 relative z-10 drop-shadow-md">
+                  {s.value}
+                </div>
+                <div className="text-slate-400 text-[10px] tracking-widest uppercase relative z-10 font-medium">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>

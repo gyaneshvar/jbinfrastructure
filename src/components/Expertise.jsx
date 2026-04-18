@@ -48,42 +48,49 @@ const items = [
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="bg-slate-950 py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="expertise" className="bg-[#020617] py-24 px-4 relative overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 hero-grid opacity-30" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Label */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-0.5 bg-amber-500" />
-          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">What We Do Best</span>
+        <div className="flex items-center gap-3 mb-4 fade-up">
+          <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-transparent" />
+          <span className="text-blue-400 text-xs tracking-[0.4em] uppercase font-semibold">Specialized Modules</span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 fade-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
-            Our <span className="text-amber-500">Expertise</span>
+            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Expertise</span>
           </h2>
-          <p className="text-gray-400 text-sm max-w-md leading-relaxed">
-            Years of experience, a dedicated team, and the precision to deliver high-quality
-            projects that meet — and exceed — client expectations.
+          <p className="text-slate-400 text-sm max-w-md leading-relaxed glass-panel p-3 border-l border-blue-500/50">
+            Years of experience, a dedicated team, and the absolute precision to deliver high-quality
+            projects spanning across complex engineering tasks.
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item) => (
+          {items.map((item, i) => (
             <div
               key={item.num}
-              className="card-glow group bg-gray-900/40 border border-gray-800/80 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300"
+              className="glass-panel glass-card-glow group rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-500 relative overflow-hidden fade-up"
+              style={{ animationDelay: `${200 + i * 100}ms` }}
             >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-bl-full transition-transform duration-500 group-hover:scale-110" />
+              
               {/* Icon */}
-              <div className="text-amber-400 mb-5">{item.icon}</div>
+              <div className="text-blue-400 mb-5 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
               {/* Number */}
-              <div className="text-amber-500/60 text-xs font-black tracking-widest mb-3">{item.num}</div>
+              <div className="text-blue-500/40 text-sm font-black tracking-widest mb-3 group-hover:text-blue-400/60 transition-colors">{item.num}</div>
               {/* Title */}
-              <h3 className="text-white font-black text-base uppercase tracking-wide mb-4 leading-tight">
+              <h3 className="text-white font-bold text-base uppercase tracking-widest mb-4 leading-tight group-hover:text-blue-100 transition-colors">
                 {item.title}
               </h3>
               {/* Animated underline */}
-              <div className="w-6 h-0.5 bg-amber-500 mb-4 group-hover:w-14 transition-all duration-400 rounded-full" />
+              <div className="w-6 h-0.5 bg-blue-500 mb-4 group-hover:w-full transition-all duration-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)]" />
               {/* Description */}
-              <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+              <p className="text-slate-400 text-xs leading-relaxed group-hover:text-slate-300 transition-colors">{item.desc}</p>
             </div>
           ))}
         </div>

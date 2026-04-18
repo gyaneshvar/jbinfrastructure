@@ -51,23 +51,27 @@ const contactDetails = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-gray-950 py-24 px-4">
-      <div className="max-w-5xl mx-auto">
+    <section id="contact" className="bg-[#020617] py-24 px-4 relative overflow-hidden flex justify-center">
+      {/* Background glow effects */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-600/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute inset-0 hero-grid opacity-20 pointer-events-none" />
+
+      <div className="max-w-5xl mx-auto w-full relative z-10">
         {/* Label */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-0.5 bg-amber-500" />
-          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">Get In Touch</span>
+        <div className="flex items-center gap-3 mb-4 fade-up">
+          <div className="w-10 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent" />
+          <span className="text-cyan-400 text-xs tracking-[0.4em] uppercase font-semibold">Interaction Hub</span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 fade-up" style={{ animationDelay: '100ms' }}>
           <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
-            Contact <span className="text-amber-500">Information</span>
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Information</span>
           </h2>
           <a
             href="mailto:amit@jbinfrastructure.in"
-            className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-7 py-3 rounded font-black tracking-widest text-xs uppercase transition-all duration-200 shadow-lg shadow-amber-500/20 flex-shrink-0"
+            className="group relative inline-flex items-center justify-center bg-transparent border border-cyan-500/50 hover:border-cyan-400 hover:bg-cyan-500/10 text-cyan-400 px-7 py-3 rounded font-black tracking-[0.2em] text-xs uppercase transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.15)] hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] flex-shrink-0"
           >
-            Email Us
+            <span className="relative z-10">Initialize Transmission</span>
           </a>
         </div>
 
@@ -75,20 +79,21 @@ export default function Contact() {
           {contactDetails.map((d, i) => (
             <div
               key={i}
-              className="card-glow bg-gray-900/40 border border-gray-800 rounded-xl p-5 flex items-start gap-4 hover:border-amber-500/40 transition-all duration-300"
+              className="glass-panel glass-card-glow border border-white/5 rounded-xl p-6 flex items-start gap-4 hover:border-cyan-400/50 transition-all duration-300 fade-up group"
+              style={{ animationDelay: `${150 + i * 50}ms` }}
             >
-              <div className="text-amber-400 flex-shrink-0 mt-0.5">{d.icon}</div>
-              <div className="min-w-0">
-                <div className="text-gray-500 text-[10px] tracking-widest uppercase mb-1.5">{d.label}</div>
+              <div className="text-cyan-400 flex-shrink-0 mt-0.5 drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] group-hover:scale-110 transition-transform duration-300 bg-cyan-500/10 p-2 rounded-full border border-cyan-500/20">{d.icon}</div>
+              <div className="min-w-0 flex-1">
+                <div className="text-slate-400 text-[10px] tracking-widest uppercase mb-1.5 font-semibold group-hover:text-cyan-300 transition-colors">{d.label}</div>
                 {d.href ? (
                   <a
                     href={d.href}
-                    className="text-white text-sm font-medium hover:text-amber-500 transition-colors duration-200 break-all"
+                    className="text-white text-sm font-medium hover:text-cyan-400 transition-colors duration-200 break-all leading-relaxed"
                   >
                     {d.value}
                   </a>
                 ) : (
-                  <span className="text-white text-sm font-medium leading-relaxed">{d.value}</span>
+                  <span className="text-white text-sm font-medium leading-relaxed block">{d.value}</span>
                 )}
               </div>
             </div>
