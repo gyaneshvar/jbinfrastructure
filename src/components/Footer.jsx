@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <h4 className="text-amber-400 text-[10px] tracking-[0.4em] uppercase font-bold mb-5">Contact</h4>
             <div className="space-y-3 text-xs">
-              <p className="text-white font-bold">Amit Kumar Yadav</p>
+              <p className="text-white font-bold">Amit Kumar</p>
               <a href="tel:+918452824423" className="block text-gray-400 hover:text-white transition-colors duration-200">
                 +91 8452824423 / 9569457060
               </a>
