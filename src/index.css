@@ -35,6 +35,7 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 17.5px; /* Base scale: bumps all rem values ~9% larger than browser default 16px */
   }
 
   body {
@@ -358,6 +359,10 @@ html {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 17px; /* Keep text comfortably sized on mobile */
+  }
+
   /* Stack all multi-col grids */
   .resp-grid-2 {
     grid-template-columns: 1fr !important;
