@@ -1,52 +1,155 @@
 const stats = [
-  { value: '30+', label: 'Projects Completed' },
-  { value: '12+', label: 'Years Experience' },
-  { value: '10+', label: 'States Served' },
+  { value: '30+',  label: 'Projects Completed' },
+  { value: '12+',  label: 'Years Experience' },
+  { value: '10+',  label: 'States Served' },
   { value: '100%', label: 'Quality Assured' },
 ]
 
 const bullets = [
-  'JB Infrastructure has been at the forefront of designing and manufacturing steel tubes for space frames and various trusses for several years.',
-  'We adhere to stringent quality standards and implement robust quality control procedures throughout every stage of every project.',
-  'With 12+ years of expertise as production and planning engineers, we have successfully executed approximately twenty space frame structures and structural steel toll plazas for clients across India.',
+  {
+    title: 'Proven Track Record',
+    body: 'With 12+ years and 30+ major infrastructure projects delivered — from toll plaza canopies in Assam to stadium steel in Gorakhpur — we bring unmatched depth of experience to every engagement.',
+  },
+  {
+    title: 'End-to-End Capability',
+    body: 'We handle everything: design, fabrication, and on-site erection. One partner. Total accountability. No sub-contracting chains that slow down your project.',
+  },
+  {
+    title: 'National-Scale Reach, Local Expertise',
+    body: 'Operating from Mumbai, Punjab, and Varanasi — with our MIDC Taloja manufacturing facility — we\'re equipped to serve projects at any scale, anywhere in India.',
+  },
+]
+
+const clients = [
+  'GR Infraprojects',
+  'APCO Infratech',
+  'Simplex Infrastructures',
+  'Dilip Buildcon',
+  'Skylark Infra',
+  'Anupam Nirman',
 ]
 
 export default function About() {
   return (
-    <section id="about" className="bg-gray-950 py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" style={{ background: 'var(--white)', padding: '100px 0 0' }}>
+      <div className="section-container">
         {/* Label */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-0.5 bg-amber-500" />
-          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">Who We Are</span>
+        <div style={{ marginBottom: 48 }}>
+          <span className="section-pill">Who We Are</span>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left: text */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'start' }}>
+          {/* Left: headline + bullets */}
           <div>
-            <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight mb-10">
-              About <span className="text-amber-500">Us</span>
+            <h2
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                fontWeight: 800,
+                lineHeight: 1.1,
+                color: 'var(--charcoal)',
+                marginBottom: 40,
+                letterSpacing: '-0.01em',
+              }}
+            >
+              Steel Structures Built on{' '}
+              <span style={{ color: 'var(--steel)' }}>12 Years</span>{' '}
+              of Trust
             </h2>
-            <ul className="space-y-6">
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
               {bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-5 text-gray-400 text-sm sm:text-base leading-relaxed">
-                  <span className="mt-2.5 w-6 h-px flex-shrink-0 bg-amber-500" />
-                  {b}
-                </li>
+                <div key={i} style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+                  <div
+                    style={{
+                      flexShrink: 0, width: 40, height: 40, borderRadius: 10,
+                      background: 'var(--steel)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      marginTop: 2,
+                    }}
+                  >
+                    <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.75rem', color: 'rgba(255,255,255,0.9)' }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.95rem', color: 'var(--charcoal)', marginBottom: 6 }}>{b.title}</div>
+                    <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>{b.body}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Right: stats */}
-          <div className="grid grid-cols-2 gap-5">
-            {stats.map((s, i) => (
-              <div
-                key={i}
-                className="card-glow bg-gray-900/40 border border-gray-800 rounded-2xl p-7 text-center transition-all duration-300 hover:border-amber-500/40"
-              >
-                <div className="text-4xl sm:text-5xl font-black text-amber-400 mb-2">{s.value}</div>
-                <div className="text-gray-500 text-[10px] tracking-widest uppercase">{s.label}</div>
+          {/* Right: stats grid */}
+          <div>
+            {/* Stats 2x2 */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 36 }}>
+              {stats.map((s, i) => (
+                <div
+                  key={i}
+                  className="card-base"
+                  style={{
+                    padding: '28px 24px',
+                    textAlign: 'center',
+                    borderLeft: '3px solid var(--amber)',
+                    transition: 'all 0.25s',
+                  }}
+                >
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--steel)', lineHeight: 1 }}>{s.value}</div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.65rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginTop: 8 }}>{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Tagline card */}
+            <div
+              style={{
+                background: 'var(--steel)',
+                borderRadius: 16,
+                padding: '28px 28px',
+                color: 'white',
+              }}
+            >
+              <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem', marginBottom: 8 }}>
+                "Your Ideas Tuned Into Reality"
               </div>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.68)', lineHeight: 1.6, margin: 0 }}>
+                Backed by a manufacturing unit at MIDC Taloja and a dedicated engineering team — we deliver.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Trusted by strip */}
+      <div
+        style={{
+          marginTop: 72,
+          borderTop: '1px solid var(--border)',
+          borderBottom: '1px solid var(--border)',
+          background: 'var(--linen)',
+          padding: '24px 0',
+        }}
+      >
+        <div className="section-container" style={{ display: 'flex', alignItems: 'center', gap: 32, flexWrap: 'wrap' }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--muted)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+            Trusted by
+          </span>
+          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', alignItems: 'center', flex: 1 }}>
+            {clients.map((c, i) => (
+              <span
+                key={i}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 600,
+                  fontSize: '0.8rem',
+                  color: 'var(--slate)',
+                  opacity: 0.7,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {c}
+              </span>
             ))}
           </div>
         </div>

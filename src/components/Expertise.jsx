@@ -1,30 +1,29 @@
 const items = [
   {
-    num: '01',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
+        <path d="M2 20h20M4 20V8l8-6 8 6v12" />
+        <path d="M9 20v-6h6v6" />
       </svg>
     ),
     title: 'Structural Steel',
-    desc: 'Designing and fabricating robust steel structures including trusses, parapets, pergolas, and toll plaza canopies for major infrastructure projects.',
+    outcome: 'Robust steel structures built to last — trusses, parapets, pergolas, and toll plaza canopies for major highway infrastructure.',
+    proof: '12+ years of fabrication',
   },
   {
-    num: '02',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
         <circle cx="12" cy="12" r="3" />
         <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M17.66 6.34l-2.12 2.12M4.22 19.78l2.12-2.12" />
       </svg>
     ),
     title: 'Metal Fabrication',
-    desc: 'Creating customized metal components with precision engineering and state-of-the-art manufacturing techniques at our MIDC Taloja facility.',
+    outcome: 'Precision custom components manufactured at our MIDC Taloja facility — exactly to your specifications, every time.',
+    proof: 'Advanced CNC equipment',
   },
   {
-    num: '03',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
         <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2" />
         <line x1="12" y1="2" x2="12" y2="22" />
         <line x1="2" y1="8.5" x2="22" y2="8.5" />
@@ -32,58 +31,99 @@ const items = [
       </svg>
     ),
     title: 'Space Frame Structures',
-    desc: 'Developing innovative space frame solutions for versatile architectural and highway infrastructure — executed across 30+ major national projects.',
+    outcome: 'Visually striking, structurally sound space frame systems — from design to installed completion across 30+ national projects.',
+    proof: '30+ major installations',
   },
   {
-    num: '04',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
       </svg>
     ),
     title: 'Pipeline & Quick Fixes',
-    desc: 'Providing rapid, reliable solutions for pipeline repairs and on-site structural quick fixes — meeting industry safety standards every time.',
+    outcome: 'Rapid, industry-compliant pipeline repairs and on-site structural maintenance — minimising downtime for your project.',
+    proof: 'Fast-response teams',
   },
 ]
 
 export default function Expertise() {
   return (
-    <section id="expertise" className="bg-slate-950 py-24 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Label */}
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-0.5 bg-amber-500" />
-          <span className="text-amber-400 text-xs tracking-[0.4em] uppercase font-semibold">What We Do Best</span>
-        </div>
-
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <h2 className="text-4xl sm:text-5xl font-black text-white uppercase leading-tight">
-            Our <span className="text-amber-500">Expertise</span>
+    <section id="expertise" style={{ background: 'var(--linen)', padding: '100px 0' }}>
+      <div className="section-container">
+        {/* Header */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 64 }}>
+          <span className="section-pill">What We Build</span>
+          <h2
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)',
+              fontWeight: 800,
+              color: 'var(--charcoal)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.01em',
+              maxWidth: 520,
+            }}
+          >
+            Four Core Disciplines,{' '}
+            <span style={{ color: 'var(--steel)' }}>One Capable Partner</span>
           </h2>
-          <p className="text-gray-400 text-sm max-w-md leading-relaxed">
-            Years of experience, a dedicated team, and the precision to deliver high-quality
-            projects that meet — and exceed — client expectations.
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--muted)', maxWidth: 520, lineHeight: 1.7, marginTop: 4 }}>
+            Every service we offer is backed by in-house manufacturing, qualified engineers, and a track record on national highway projects.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item) => (
+        {/* Cards grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+          {items.map((item, i) => (
             <div
-              key={item.num}
-              className="card-glow group bg-gray-900/40 border border-gray-800/80 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300"
+              key={i}
+              className="card-base"
+              style={{ padding: '36px 28px', position: 'relative', overflow: 'hidden' }}
             >
+              {/* Top accent bar */}
+              <div
+                style={{
+                  position: 'absolute', top: 0, left: 0, right: 0, height: 3,
+                  background: 'var(--steel)',
+                  transform: 'scaleX(0)', transformOrigin: 'left',
+                  transition: 'transform 0.35s ease',
+                }}
+                className="expertise-bar"
+              />
+
               {/* Icon */}
-              <div className="text-amber-400 mb-5">{item.icon}</div>
-              {/* Number */}
-              <div className="text-amber-500/60 text-xs font-black tracking-widest mb-3">{item.num}</div>
+              <div style={{ color: 'var(--steel)', marginBottom: 20 }}>{item.icon}</div>
+
               {/* Title */}
-              <h3 className="text-white font-black text-base uppercase tracking-wide mb-4 leading-tight">
+              <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.05rem', color: 'var(--charcoal)', marginBottom: 12, lineHeight: 1.2 }}>
                 {item.title}
               </h3>
-              {/* Animated underline */}
-              <div className="w-6 h-0.5 bg-amber-500 mb-4 group-hover:w-14 transition-all duration-400 rounded-full" />
-              {/* Description */}
-              <p className="text-gray-400 text-xs leading-relaxed">{item.desc}</p>
+
+              {/* Outcome */}
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.835rem', color: 'var(--muted)', lineHeight: 1.7, marginBottom: 20 }}>
+                {item.outcome}
+              </p>
+
+              {/* Proof pill */}
+              <div
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  background: 'rgba(30,58,95,0.07)',
+                  border: '1px solid rgba(30,58,95,0.12)',
+                  borderRadius: 100,
+                  padding: '4px 12px',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '0.62rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  color: 'var(--steel)',
+                }}
+              >
+                <span style={{ color: 'var(--amber)', fontSize: '0.7rem' }}>✓</span>
+                {item.proof}
+              </div>
+
+              <style>{`.card-base:hover .expertise-bar { transform: scaleX(1) !important; }`}</style>
             </div>
           ))}
         </div>

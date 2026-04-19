@@ -14,7 +14,7 @@ const links = [
 ]
 
 export default function Navbar() {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen]         = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -25,37 +25,45 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-400 ${
-        scrolled
-          ? 'bg-gray-950/80 backdrop-blur-md shadow-2xl border-b border-gray-800/50'
-          : 'bg-transparent'
-      } `}
+      style={{
+        position: 'fixed', top: 0, width: '100%', zIndex: 50,
+        transition: 'all 0.3s ease',
+        ...(scrolled
+          ? {
+              background: 'rgba(250,247,242,0.97)',
+              backdropFilter: 'blur(16px)',
+              borderBottom: '1px solid var(--border)',
+              boxShadow: 'var(--shadow-sm)',
+            }
+          : { background: 'transparent' }),
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
         {/* Logo + brand */}
-        <a href="#home" className="flex items-center gap-3 flex-shrink-0 group">
+        <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
           <img
             src={`${BASE}assets/logo.png`}
             alt="JB Infrastructure"
-            className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-110"
+            style={{ height: 44, width: 44, objectFit: 'contain' }}
           />
-          <div className="flex flex-col leading-tight">
-            <span className="text-white font-black text-base sm:text-lg tracking-widest uppercase">
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.95rem', letterSpacing: '0.08em', textTransform: 'uppercase', color: scrolled ? 'var(--steel)' : 'white' }}>
               JB Infrastructure
             </span>
-            <span className="text-amber-400 text-[10px] tracking-[0.35em] uppercase font-semibold hidden sm:block">
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.6rem', letterSpacing: '0.25em', textTransform: 'uppercase', color: scrolled ? 'var(--amber)' : 'rgba(255,200,80,0.9)', display: 'none' }} className="sm-visible">
               Your Ideas Tuned Into Reality
             </span>
           </div>
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-6">
+        <ul style={{ display: 'flex', alignItems: 'center', gap: 24, listStyle: 'none', margin: 0, padding: 0 }} className="desktop-nav">
           {links.map(l => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="nav-link text-gray-400 hover:text-amber-500 font-medium text-xs tracking-[0.15em] transition-colors duration-200 uppercase"
+                className="nav-link"
+                style={{ color: scrolled ? 'var(--slate)' : 'rgba(255,255,255,0.85)', textDecoration: 'none' }}
               >
                 {l.label}
               </a>
@@ -63,44 +71,54 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA button – desktop */}
-        <a
-          href="#contact"
-          className="hidden lg:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-5 py-2 rounded text-xs font-black tracking-widest uppercase transition-all duration-200"
-        >
-          Get In Touch
+        {/* CTA */}
+        <a href="#contact" className="btn-amber desktop-nav" style={{ fontSize: '0.65rem', padding: '0.6rem 1.4rem' }}>
+          Get a Quote
         </a>
 
         {/* Hamburger */}
         <button
+          id="nav-hamburger"
           onClick={() => setOpen(o => !o)}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5, padding: 8 }}
+          className="mobile-nav"
           aria-label="Toggle navigation"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span style={{ display: 'block', width: 24, height: 2, borderRadius: 2, background: scrolled ? 'var(--steel)' : 'white', transition: 'all 0.3s', transform: open ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+          <span style={{ display: 'block', width: 24, height: 2, borderRadius: 2, background: scrolled ? 'var(--steel)' : 'white', transition: 'all 0.3s', opacity: open ? 0 : 1 }} />
+          <span style={{ display: 'block', width: 24, height: 2, borderRadius: 2, background: scrolled ? 'var(--steel)' : 'white', transition: 'all 0.3s', transform: open ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-gray-950/98 backdrop-blur-md border-t border-gray-900">
-          <ul className="px-6 py-5 flex flex-col gap-1">
+        <div style={{ background: 'var(--linen)', borderTop: '1px solid var(--border)', padding: '1rem 1.5rem 1.5rem' }}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
             {links.map(l => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-gray-400 hover:text-amber-500 py-3 text-sm font-medium tracking-widest uppercase transition-colors border-b border-gray-900 last:border-b-0"
+                  style={{ display: 'block', padding: '0.75rem 0', fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--slate)', textDecoration: 'none', borderBottom: '1px solid var(--border)' }}
                 >
                   {l.label}
                 </a>
               </li>
             ))}
+            <li style={{ marginTop: 12 }}>
+              <a href="#contact" onClick={() => setOpen(false)} className="btn-amber" style={{ fontSize: '0.7rem' }}>
+                Get a Quote
+              </a>
+            </li>
           </ul>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 1023px) { .desktop-nav { display: none !important; } .mobile-nav { display: flex !important; } }
+        @media (min-width: 1024px) { .desktop-nav { display: flex !important; } .mobile-nav { display: none !important; } }
+        @media (min-width: 640px)  { .sm-visible { display: block !important; } }
+      `}</style>
     </nav>
   )
 }
