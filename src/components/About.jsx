@@ -38,7 +38,7 @@ export default function About() {
           <span className="section-pill">Who We Are</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'start' }}>
+        <div className="resp-grid-2" style={{ alignItems: 'start' }}>
           {/* Left: headline + bullets */}
           <div>
             <h2

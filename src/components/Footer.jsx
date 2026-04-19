@@ -18,7 +18,7 @@ export default function Footer() {
       <div style={{ height: 3, background: 'var(--amber)' }} />
 
       <div className="section-container" style={{ padding: '60px 1.5rem 0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr 1fr', gap: 48, marginBottom: 52 }}>
+        <div className="resp-grid-3" style={{ marginBottom: 52 }}>
           {/* Brand column */}
           <div>
             <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20, textDecoration: 'none' }}>

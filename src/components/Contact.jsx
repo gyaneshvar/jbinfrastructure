@@ -142,7 +142,7 @@ export default function Contact() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
+        <div className="resp-grid-2">
           {/* Direct contact */}
           <div>
             <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 20 }}>
@@ -170,14 +170,14 @@ export default function Contact() {
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: 5 }}>{d.label}</div>
                     {d.href ? (
-                      <a href={d.href} style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.9rem', color: 'var(--charcoal)', textDecoration: 'none', wordBreak: 'break-all' }}
+                      <a href={d.href} className="contact-val" style={{ fontFamily: 'var(--font-body)', fontWeight: 500, fontSize: '0.9rem', color: 'var(--charcoal)', textDecoration: 'none' }}
                          onMouseEnter={e => e.target.style.color = 'var(--steel)'}
                          onMouseLeave={e => e.target.style.color = 'var(--charcoal)'}
                       >
                         {d.value}
                       </a>
                     ) : (
-                      <span style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.95rem', color: 'var(--charcoal)' }}>{d.value}</span>
+                      <span className="contact-val" style={{ fontFamily: 'var(--font-body)', fontWeight: 600, fontSize: '0.95rem', color: 'var(--charcoal)' }}>{d.value}</span>
                     )}
                   </div>
                 </div>

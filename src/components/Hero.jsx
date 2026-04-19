@@ -90,7 +90,7 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="fade-up-delay-3" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+          <div className="hero-cta-group fade-up-delay-3" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <a href="#contact" className="btn-amber" style={{ fontSize: '0.78rem' }}>
               Request a Quote →
             </a>
