@@ -53,7 +53,7 @@ export default function Navbar() {
             className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110"
           />
           <div className="flex flex-col leading-none">
-            <span>J.B. Infrastructure</span>
+            <span>JB Infrastructure</span>
           </div>
         </a>
 

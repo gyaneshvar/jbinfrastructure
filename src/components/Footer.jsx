@@ -24,7 +24,7 @@ export default function Footer() {
             <span className="material-symbols-outlined group-hover:scale-110 transition-transform" style={{ fontVariationSettings: "'FILL' 1" }}>
               architecture
             </span>
-            J.B. Infrastructure
+            JB Infrastructure
           </a>
           <p className="text-on-primary-fixed-variant mt-4 max-w-xs leading-relaxed">
             Forging the nation's framework through uncompromising engineering, monumental scale, and structural rigidity.
@@ -86,7 +86,7 @@ export default function Footer() {
       <div className="relative z-10 border-t border-surface-tint/30">
         <div className="max-w-container-max mx-auto px-8 lg:px-16 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-on-primary-fixed-variant text-sm text-center md:text-left">
-            © {new Date().getFullYear()} J.B. Infrastructure. Engineering Excellence.
+            © {new Date().getFullYear()} JB Infrastructure. Engineering Excellence.
           </p>
           <p className="text-on-primary-fixed-variant text-xs tracking-[0.4em] uppercase text-center md:text-right">
             Your Ideas Tuned Into Reality

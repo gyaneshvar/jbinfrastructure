@@ -23,10 +23,10 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="font-headline-xl text-[40px] sm:text-[56px] md:text-headline-xl text-on-primary mb-2 uppercase leading-none break-words">
-              J.B.
+            <h1 className="font-headline-xl font-black tracking-tighter text-3xl min-[400px]:text-[36px] sm:text-[56px] md:text-headline-xl text-on-primary mb-2 uppercase leading-none break-words">
+              JB
             </h1>
-            <h1 className="font-headline-xl text-[40px] sm:text-[56px] md:text-headline-xl text-secondary mb-6 uppercase leading-none break-words">
+            <h1 className="font-headline-xl font-black tracking-tighter text-3xl min-[400px]:text-[36px] sm:text-[56px] md:text-headline-xl text-secondary mb-6 uppercase leading-none break-words">
               Infrastructure
             </h1>
             
