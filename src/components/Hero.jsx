@@ -10,8 +10,8 @@ export default function Hero() {
           style={{ backgroundImage: `url(${BASE}assets/heroimage.jpeg)` }}
         />
         
-        {/* Deep Navy Overlay */}
-        <div className="absolute inset-0 bg-primary/85 transition-opacity duration-500 group-hover:bg-primary/80" />
+        {/* Deep Dark Overlay */}
+        <div className="absolute inset-0 bg-black/85 transition-opacity duration-500 group-hover:bg-black/80" />
         
         {/* Content */}
         <div className="relative z-10 w-full px-8 md:px-12 grid grid-cols-12 gap-gutter">
