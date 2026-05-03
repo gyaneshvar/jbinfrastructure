@@ -14,48 +14,61 @@ const links = [
 ]
 
 export default function Navbar() {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [active, setActive] = useState('#home')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60)
+      
+      // Simple logic to detect active section
+      const sections = links.map(l => document.querySelector(l.href))
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i]
+        if (section && window.scrollY >= (section.offsetTop - 100)) {
+          setActive(links[i].href)
+          break
+        }
+      }
+    }
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-400 ${
+      className={`fixed top-0 w-full z-50 border-b-2 transition-all duration-300 font-label-bold text-label-bold uppercase tracking-tight ${
         scrolled
-          ? 'bg-gray-950/80 backdrop-blur-md shadow-2xl border-b border-gray-800/50'
-          : 'bg-transparent'
-      } `}
+          ? 'bg-surface/95 backdrop-blur-md border-outline-variant shadow-sm'
+          : 'bg-surface/80 backdrop-blur-sm border-transparent'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
-        {/* Logo + brand */}
-        <a href="#home" className="flex items-center gap-3 flex-shrink-0 group">
+      <div className="flex justify-between items-center w-full px-4 sm:px-8 lg:px-16 h-20 max-w-container-max mx-auto">
+        {/* Brand */}
+        <a href="#home" className="text-lg lg:text-xl font-headline-md font-black tracking-tighter text-primary flex items-center gap-2 group">
           <img
             src={`${BASE}assets/logo.png`}
             alt="JB Infrastructure"
-            className="h-11 w-11 object-contain transition-transform duration-300 group-hover:scale-110"
+            className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110"
           />
-          <div className="flex flex-col leading-tight">
-            <span className="text-white font-black text-base sm:text-lg tracking-widest uppercase">
-              JB Infrastructure
-            </span>
-            <span className="text-amber-400 text-[10px] tracking-[0.35em] uppercase font-semibold hidden sm:block">
-              Your Ideas Tuned Into Reality
-            </span>
+          <div className="flex flex-col leading-none">
+            <span>J.B. Infrastructure</span>
           </div>
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-6">
+        {/* Links (Desktop) */}
+        <ul className="hidden xl:flex gap-4 lg:gap-6 items-center h-full pt-1">
           {links.map(l => (
-            <li key={l.href}>
+            <li key={l.href} className="h-full flex items-center">
               <a
                 href={l.href}
-                className="nav-link text-gray-400 hover:text-amber-500 font-medium text-xs tracking-[0.15em] transition-colors duration-200 uppercase"
+                className={`transition-colors duration-200 py-2 hover:text-secondary ${
+                  active === l.href
+                    ? 'text-secondary border-b-2 border-secondary font-bold'
+                    : 'text-on-surface-variant hover:bg-surface-variant/50 rounded px-2'
+                }`}
+                onClick={() => setActive(l.href)}
               >
                 {l.label}
               </a>
@@ -63,41 +76,57 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA button – desktop */}
-        <a
-          href="#contact"
-          className="hidden lg:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black px-5 py-2 rounded text-xs font-black tracking-widest uppercase transition-all duration-200"
-        >
-          Get In Touch
-        </a>
+        {/* Trailing Action */}
+        <div className="hidden lg:block">
+          <a
+            href="#contact"
+            className="bg-secondary text-on-secondary px-6 py-3 rounded hover:bg-secondary-container hover:text-on-secondary-container hover:shadow-[inset_0px_0px_0px_2px_#00112a] transition-all duration-200 inline-block text-center"
+          >
+            Get a Quote
+          </a>
+        </div>
 
-        {/* Hamburger */}
+        {/* Mobile Menu Icon */}
         <button
-          onClick={() => setOpen(o => !o)}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="xl:hidden text-primary p-2"
+          onClick={() => setOpen(!open)}
           aria-label="Toggle navigation"
         >
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-opacity duration-300 ${open ? 'opacity-0' : ''}`} />
-          <span className={`block w-6 h-0.5 bg-white transition-transform duration-300 origin-center ${open ? '-rotate-45 -translate-y-2' : ''}`} />
+          <span className="material-symbols-outlined text-[32px]">
+            {open ? 'close' : 'menu'}
+          </span>
         </button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden bg-gray-950/98 backdrop-blur-md border-t border-gray-900">
-          <ul className="px-6 py-5 flex flex-col gap-1">
+        <div className="xl:hidden bg-surface border-t border-outline-variant absolute w-full left-0 top-full shadow-lg">
+          <ul className="px-6 py-4 flex flex-col gap-2">
             {links.map(l => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-gray-400 hover:text-amber-500 py-3 text-sm font-medium tracking-widest uppercase transition-colors border-b border-gray-900 last:border-b-0"
+                  onClick={() => {
+                    setActive(l.href)
+                    setOpen(false)
+                  }}
+                  className={`block py-3 transition-colors border-b border-surface-variant last:border-b-0 ${
+                    active === l.href ? 'text-secondary font-bold' : 'text-on-surface-variant'
+                  }`}
                 >
                   {l.label}
                 </a>
               </li>
             ))}
+            <li className="pt-4">
+               <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="block w-full bg-secondary text-on-secondary px-6 py-3 rounded text-center transition-all duration-200 active:scale-95"
+                >
+                  Get a Quote
+                </a>
+            </li>
           </ul>
         </div>
       )}
